@@ -17,3 +17,5 @@
 مراحل زیر را دنبال کنید تا پروژه را اجرا کنید:
 
 1. مخزن را کلون کنید
+`bash
+    git clone https://github.com/username/repository.git
