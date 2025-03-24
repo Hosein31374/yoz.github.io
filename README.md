@@ -18,4 +18,4 @@
 
 1. مخزن را کلون کنید:
    `bash
-   git clone https://github.com/username/repository.git
+   git clone https://github.com/Hosein31374/yoz.github.io
