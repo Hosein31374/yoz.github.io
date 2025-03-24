@@ -1,0 +1,40 @@
+name: Deploy Static Website to GitHub Pages
+
+# این گردش کار زمانی اجرا می‌شود که تغییری در شاخه main اعمال شود
+on:
+  push:
+    branches:
+      - main
+
+# تعریف کارها (Jobs)
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    # گام 1: کلون کردن مخزن
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    # گام 2: نصب Node.js (در صورت نیاز برای ساخت وب‌سایت)
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+
+    # گام 3: نصب وابستگی‌ها (Dependencies)
+    - name: Install dependencies
+      run: |
+        npm install
+
+    # گام 4: ساخت وب‌سایت
+    - name: Build the website
+      run: |
+        npm run build
+
+    # گام 5: استقرار در GitHub Pages
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./build
