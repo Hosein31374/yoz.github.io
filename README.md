@@ -19,3 +19,6 @@
 1. مخزن را کلون کنید
 `bash
     git clone https://github.com/username/repository.git
+cd repository
+npm install
+npm run start
